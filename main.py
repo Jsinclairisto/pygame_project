@@ -1,4 +1,4 @@
-import sys, pygame, os
+import pygame, os, sys
 from pygame.locals import *
 from player import Player
 
@@ -17,32 +17,18 @@ direction = 'right'
 while True:
     player = Player()
     DISPLAYSURF.fill(WHITE)
-    # if direction == 'right':
-    #     player.player_x += 5
-    #     if player.player_x == 280:
-    #         direction = 'down'
     
-    # elif direction == 'down':
-    #     player.player_y += 5
-    #     if player.player_y == 220:
-    #         direction = 'left'
-    
-    # elif direction == 'left':
-    #     player.player_x -= 5
-    #     if player.player_x == 10:
-    #         direction = 'up'
-    
-    # elif direction == 'up':
-    #     player.player_y -= 5
-    #     if player.player_y == 10:
-    #         direction = 'right'
-
-
-
-    DISPLAYSURF.blit(player.playerImg, (player.player_x, player.player_y))
     for event in pygame.event.get():
-        if event.type == QUIT:
+        if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                player.player_x = -10
+            if event.key == pygame.K_RIGHT:
+                player.player_x = 10
+    x_newLoc = 0
+    x_newLoc += player.player_x
+    DISPLAYSURF.blit(player.playerImg, (x_newLoc, player.player_y))
     pygame.display.update()
     fpsClock.tick(FPS)
