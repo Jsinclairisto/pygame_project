@@ -1,6 +1,7 @@
 import sys, pygame, os
 from pygame.locals import *
 from player import Player
+
 pygame.init()
 
 WHITE = (255,255,255)
