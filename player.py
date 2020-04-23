@@ -2,11 +2,12 @@ import pygame, os, sys
 from pygame.locals import *
 
 class Player(pygame.sprite.Sprite):
-    playerImg = pygame.image.load('assets/player/player1.png')
-    playerImg = pygame.transform.scale(playerImg,(50,70))
+    playerImg = pygame.image.load('assets/player/player_1.png')
+    playerImg = pygame.transform.scale(playerImg,(64,64))
+
     player_x = 0
     player_y = 0
-
+        
     # def update(self):
     #     self.player_x = 0
     #     keys = pygame.keys.get_pressed()

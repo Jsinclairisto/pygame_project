@@ -1,21 +1,26 @@
 import pygame, sys
 from pygame.locals import*
 
-pygame.init()
+class str_Tile:
+    def __init__(self, block_path):
+        self.block_path = block_path
 
-DISPLAYSURF = pygame.display.set_mode((800, 500), 0, 32)
+def map_create():
+    new_map = [[str_Tile(False) for y in range(0,30)] for x in range(0,30)]
+    new_map[10][10].block_path = True 
+    new_map[10][15].block_path = True 
 
-pygame.display.set_caption('Dungeon Dude')
+    return new_map 
 
-#playerSprite = pygame.image.load('caveguy.png')
-guyx = 10
-guyy = 10
-direction = 'right'
+def game_init():
+    GAME_MAP = map_create()
 
-while True:
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            sys.exit()
-    pygame.display.update()
-    
+def draw_map(map_to_draw):
+    for x in range(0,30):
+        for y in range(0,30):
+            if map_to_draw[x][y].block_path == True:
+                #TODO: Draw floor 
+                pass
+            else:
+                #TODO: Draw floor
+                pass
